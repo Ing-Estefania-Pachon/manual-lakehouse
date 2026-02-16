@@ -2,14 +2,30 @@ project:
   type: book
 
 book:
-  title: "Manual-lakehouse"
-  author: "Norah Jones"
+  title: "Manual Maestro Data Lakehouse UNGRD"
+  author: "Equipo de Conocimiento UNGRD"
   date: "2/16/2026"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - part: "PARTE I: FUNDAMENTOS Y ESTRATEGIA"
+      chapters:
+        - 01-vision.qmd
+    - part: "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)"
+      chapters:
+        - 02-oss.qmd
+    - part: "PARTE III: INTEGRACIÓN (DataWorks)"
+      chapters:
+        - 03-dataworks.qmd
+    - part: "PARTE IV: PROCESAMIENTO (MaxCompute)"
+      chapters:
+        - 04-maxcompute.qmd
+    - part: "PARTE V: VISUALIZACIÓN"
+      chapters:
+        - 05-quickbi.qmd
+        - 06-datav.qmd
+    - part: "PARTE VI: GOBERNANZA"
+      chapters:
+        - 07-gobernanza.qmd
 
 bibliography: references.bib
 
@@ -18,6 +34,3 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
-
-
-
