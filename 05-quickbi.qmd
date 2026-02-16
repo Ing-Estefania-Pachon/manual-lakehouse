@@ -1,0 +1,4 @@
+# Quick BI
+
+## Visualización de Datos
+Creación de dashboards interactivos para la toma de decisiones.

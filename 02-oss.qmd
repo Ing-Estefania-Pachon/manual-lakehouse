@@ -1,0 +1,86 @@
+# Gestión de Archivos en OSS
+
+El **Object Storage Service (OSS)** de Alibaba Cloud es la base de nuestra capa **Bronze**. En este capítulo, aprenderás a gestionar los archivos de forma estandarizada y segura.
+
+## Flujo de Datos en el Lakehouse
+
+Para contextualizar el rol de OSS, observemos cómo transitan los datos a través de las capas del proyecto:
+
+```{mermaid}
+graph TD
+    A[Fuentes de Datos] -->|Carga/ossutil| B("🥉 Capa Bronze (OSS)")
+    B -->|Procesamiento| C("🥈 Capa Silver (MaxCompute)")
+    C -->|Refinamiento| D("🥇 Capa Gold (MaxCompute)")
+    D -->|Visualización| E[Quick BI / DataV]
+
+    style B fill:#cd7f32,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#c0c0c0,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#ffd700,stroke:#333,stroke-width:2px,color:#000
+```
+
+## 2.1 Navegación por la Consola
+
+Para gestionar los datos manualmente:
+
+1.  Inicia sesión en la consola de **Alibaba Cloud**.
+2.  En el menú de productos, busca y selecciona **Object Storage Service**.
+3.  En el panel izquierdo, haz clic en **Bucket List**.
+4.  Selecciona el bucket asignado a tu proyecto (ej: `ungrd-lakehouse-bronze`).
+5.  Usa la pestaña **Files** para navegar por las carpetas, subir o descargar archivos.
+
+## 2.2 Estándares de Naming: Regla UNGRD
+
+Para garantizar la trazabilidad y evitar colisiones de datos, **todos** los archivos cargados deben seguir esta estructura:
+
+`[PROYECTO]_[ZONA]_[FECHA]_[VERSION].[EXT]`
+
+**Ejemplos:**
+- `SUE_MOCOA_20231025_V1.csv`
+- `SAT_VIGIA_20240112_V2.json`
+
+> [!IMPORTANT]
+> No uses espacios, tildes ni caracteres especiales en los nombres. Usa siempre guion bajo (`_`) como separador.
+
+## 2.3 Guía de Carga de Datos
+
+### Carga vía Consola Web (Paso a Paso)
+
+Este método es ideal para archivos individuales o volúmenes pequeños de datos:
+
+1.  **Ingreso al Bucket:** Navega hasta tu bucket objetivo siguiendo los pasos de la sección 2.1.
+2.  **Preparación de Carpeta:** Entra en la carpeta de destino donde deseas que repose el dato (ej: `proyectos/sue/bronze/`).
+3.  **Iniciar Carga:** Haz clic en el botón azul **Upload** situado en la parte superior derecha.
+4.  **Selección de Archivos:** 
+    - Haz clic en **Select Files** para abrir el explorador de tu equipo.
+    - O simplemente arrastra y suelta los archivos directamente en el recuadro gris.
+5.  **Configuración de Carga:** 
+    - **Upload To:** Verifica que la ruta de destino sea la correcta.
+    - **File ACL:** Déjalo en **Inherited from Bucket** (esto asegura que herede los permisos de seguridad de la UNGRD).
+    - **Storage Class:** Asegúrate de que esté en **Standard** para datos que van a ser procesados de inmediato.
+6.  **Finalizar:** Haz clic en el botón **Upload** al final del panel lateral. Podrás seguir el progreso en la barra de tareas inferior.
+
+### Carga vía `ossutil` (Volúmenes masivos/Automatización)
+Para usuarios avanzados e ingenieros, recomendamos usar la herramienta de línea de comandos `ossutil`.
+
+**Comando básico de subida:**
+```bash
+./ossutil64 cp ./mi_archivo_local.csv oss://ungrd-lakehouse-bronze/proyectos/sue/
+```
+
+## 2.4 Versionamiento y Recuperación
+
+El Lakehouse tiene activado el **Bucket Versioning**. Esto significa que si sobrescribes un archivo con el mismo nombre, el sistema guarda una copia de la versión anterior.
+
+> [!WARNING]
+> **Recuperación de Archivos Borrados:**
+> Si borras un archivo accidentalmente, este no desaparece de inmediato. El sistema crea un "Delete Marker". Para recuperarlo, debes activar la opción **Show Deleted Objects**, seleccionar la versión anterior al borrado y hacer clic en **Restore**.
+
+## 2.5 Ciclo de Vida: Optimización de Costos
+
+Los datos de desastres antiguos que ya no se consultan frecuentemente deben moverse a capas de almacenamiento más baratas.
+
+1.  **Standard:** Acceso frecuente, mayor costo.
+2.  **IA (Infrequent Access):** Acceso mensual, menor costo.
+3.  **Cold Archive:** Para datos históricos (de hace 5+ años). Los costos son mínimos, pero la recuperación puede tardar minutos u horas.
+
+Configura reglas de **Lifecycle** en la pestaña **Basic Settings** para automatizar este movimiento y optimizar el presupuesto de la UNGRD.

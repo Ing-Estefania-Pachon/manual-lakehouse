@@ -1,0 +1,7 @@
+# Seguridad y Calidad de Datos
+
+## RAM y Gobernanza
+Gestión de identidades y recursos.
+
+## DQC (Data Quality Control)
+Aseguramiento de la integridad de los datos en todas las capas.

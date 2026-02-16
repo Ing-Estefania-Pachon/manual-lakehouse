@@ -1,0 +1,4 @@
+# DataV Geoespacial
+
+## Datos en el Mapa
+Visualización de eventos y riesgos en tiempo real mediante mapas interactivos.

@@ -1,0 +1,70 @@
+# Visión del Proyecto UNGRD
+
+## 1.1 El Objetivo: Del Caos al Orden
+
+En la gestión del riesgo de desastres, el tiempo no es solo una métrica de rendimiento; es la diferencia entre la vida y la muerte. Históricamente, la **UNGRD** ha operado con datos fragmentados, silos de información y procesos manuales que retrasan la respuesta ante emergencias.
+
+El proyecto **Data Lakehouse** nace con una misión clara: **Salvar vidas con datos**. Nuestra meta es transformar el caos de datos crudos en una fuente única de verdad, permitiendo que cada decisión —desde la entrega de ayuda humanitaria hasta la mitigación de riesgos de inundación— esté respaldada por evidencia analítica en tiempo real.
+
+:::{.callout-note}
+### Nuestra Misión
+Convertir la información en acción. Un dato bien procesado hoy es una vida salvada mañana.
+:::
+
+## 1.2 ¿Qué es el Lakehouse?
+
+El **Data Lakehouse** es la evolución de nuestra infraestructura tecnológica en Alibaba Cloud. Combina lo mejor de dos mundos:
+
+1.  **Data Lake**: La capacidad de almacenar volúmenes masivos de datos en su formato original (imágenes satelitales, sensores, reportes de campo) de manera económica y flexible usando **OSS**.
+2.  **Data Warehouse**: El rigor, la estructura y el rendimiento de una base de datos analítica de alto nivel usando **MaxCompute**.
+
+Esta arquitectura híbrida nos permite ser ágiles sin perder la soberanía y gobernanza de los datos nacionales.
+
+## 1.3 Las Capas: La Analogía del Tratamiento de Agua
+
+Para entender cómo fluyen los datos en el Lakehouse, utilizamos la **Arquitectura Medallion**, que funciona exactamente como una planta de tratamiento de agua:
+
+### 🥉 Capa Bronze (Agua Cruda)
+Es el punto de entrada. Aquí almacenamos los datos tal cual llegan de las fuentes (como el agua tomada directamente de un río). Es completa pero contiene sedimentos e impurezas que no permiten su consumo directo.
+*   **Estado:** Crudo / Sin procesar.
+
+### 🥈 Capa Silver (Agua Filtrada)
+En esta etapa, limpiamos, filtramos y estandarizamos los datos. Eliminamos duplicados y corregimos errores. El dato ya es confiable para los analistas técnicos, similar a un agua que ha pasado por procesos de potabilización pero aún no está embotellada.
+*   **Estado:** Limpio / Consistente.
+
+### 🥇 Capa Gold (Agua Potable/Premium)
+Es la capa final de valor. Aquí los datos están agregados y modelados para responder preguntas de negocio específicas (ej: "¿Cuántas familias fueron afectadas en Mocoa?"). Es el agua lista para el consumo masivo en dashboards de **Quick BI**.
+*   **Estado:** Accionable / Optimizado para toma de decisiones.
+
+## 1.4 Mapa de Herramientas (Ecosistema Alibaba Cloud)
+
+La infraestructura se apoya en cuatro pilares fundamentales:
+
+```{mermaid}
+graph LR
+    A[Fuentes de Datos] --> B(Almacenamiento: OSS)
+    B --> C{Orquestación: DataWorks}
+    C --> D(Procesamiento: MaxCompute)
+    D --> E(Visualización: Quick BI / DataV)
+    
+    subgraph "Capa Bronze"
+    B
+    end
+    
+    subgraph "Capa Silver/Gold"
+    D
+    end
+```
+
+*   **OSS (Object Storage Service):** Nuestro gran repositorio de archivos.
+*   **MaxCompute:** El motor que procesa millones de filas en segundos.
+*   **DataWorks:** El puente que conecta todas las herramientas y automatiza los flujos.
+*   **Quick BI / DataV:** Las ventanas a través de las cuales los directivos ven la realidad del territorio.
+
+## Glosario Corporativo
+
+*   **Arquitectura Medallion:** Metodología de organización de datos en capas (Bronze, Silver, Gold).
+*   **Lakehouse:** Plataforma que unifica capacidades analíticas y de almacenamiento masivo.
+*   **Ingesta:** El proceso de mover datos desde una fuente externa hacia nuestro sistema.
+*   **Gobernanza:** Reglas y controles para asegurar que el dato sea veraz, seguro y privado.
+*   **Ficha SUE:** Sistema Unificado de Información para la gestión del Riesgo.
