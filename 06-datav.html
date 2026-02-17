@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Equipo de Conocimiento UNGRD">
-<meta name="dcterms.date" content="2026-02-16">
 
-<title>Manual Maestro Data Lakehouse UNGRD</title>
+<title>6&nbsp; DataV Geoespacial – Manual Maestro Data Lakehouse UNGRD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-vision.html" rel="next">
+<link href="./07-gobernanza.html" rel="next">
+<link href="./05-quickbi.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-quickbi.html">PARTE V: VISUALIZACIÓN</a></li><li class="breadcrumb-item"><a href="./06-datav.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DataV Geoespacial</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -111,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -200,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-datav.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-datav.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DataV Geoespacial</span></span></a>
   </div>
 </li>
@@ -233,35 +232,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#datos-en-el-mapa" id="toc-datos-en-el-mapa" class="nav-link active" data-scroll-target="#datos-en-el-mapa"><span class="header-section-number">6.1</span> Datos en el Mapa</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-quickbi.html">PARTE V: VISUALIZACIÓN</a></li><li class="breadcrumb-item"><a href="./06-datav.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DataV Geoespacial</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Manual Maestro Data Lakehouse UNGRD</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DataV Geoespacial</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Equipo de Conocimiento UNGRD </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 16, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -271,10 +258,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="datos-en-el-mapa" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="datos-en-el-mapa"><span class="header-section-number">6.1</span> Datos en el Mapa</h2>
+<p>Visualización de eventos y riesgos en tiempo real mediante mapas interactivos.</p>
 
 
 </section>
@@ -682,10 +668,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./05-quickbi.html" class="pagination-link" aria-label="Quick BI">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quick BI</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-vision.html" class="pagination-link" aria-label="Visión del Proyecto UNGRD">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Visión del Proyecto UNGRD</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-gobernanza.html" class="pagination-link" aria-label="Seguridad y Calidad de Datos">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Seguridad y Calidad de Datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

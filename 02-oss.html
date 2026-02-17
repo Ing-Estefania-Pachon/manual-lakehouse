@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Summary – Manual-lakehouse</title>
+<title>2&nbsp; Gestión de Archivos en OSS – Manual Maestro Data Lakehouse UNGRD</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./03-dataworks.html" rel="next">
+<link href="./01-vision.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,6 +105,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -83,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-oss.html">PARTE II: INGESTA Y ALMACENAMIENTO (OSS)</a></li><li class="breadcrumb-item"><a href="./02-oss.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gestión de Archivos en OSS</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -98,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Manual-lakehouse</a> 
+      <a href="./">Manual Maestro Data Lakehouse UNGRD</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -114,38 +152,143 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE I: FUNDAMENTOS Y ESTRATEGIA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./01-vision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Visión del Proyecto UNGRD</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE II: INGESTA Y ALMACENAMIENTO (OSS)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./02-oss.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gestión de Archivos en OSS</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE III: INTEGRACIÓN (DataWorks)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./03-dataworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DataWorks - El Centro de Mando</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE IV: PROCESAMIENTO (MaxCompute)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-maxcompute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Procesamiento y SQL con MaxCompute</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE V: VISUALIZACIÓN</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-quickbi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quick BI</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-datav.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DataV Geoespacial</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">PARTE VI: GOBERNANZA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-gobernanza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Seguridad y Calidad de Datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#flujo-de-datos-en-el-lakehouse" id="toc-flujo-de-datos-en-el-lakehouse" class="nav-link active" data-scroll-target="#flujo-de-datos-en-el-lakehouse"><span class="header-section-number">2.1</span> Flujo de Datos en el Lakehouse</a></li>
+  <li><a href="#navegación-por-la-consola" id="toc-navegación-por-la-consola" class="nav-link" data-scroll-target="#navegación-por-la-consola"><span class="header-section-number">2.2</span> Navegación por la Consola</a></li>
+  <li><a href="#estándares-de-naming-regla-ungrd" id="toc-estándares-de-naming-regla-ungrd" class="nav-link" data-scroll-target="#estándares-de-naming-regla-ungrd"><span class="header-section-number">2.3</span> Estándares de Naming: Regla UNGRD</a></li>
+  <li><a href="#guía-de-carga-de-datos" id="toc-guía-de-carga-de-datos" class="nav-link" data-scroll-target="#guía-de-carga-de-datos"><span class="header-section-number">2.4</span> Guía de Carga de Datos</a>
+  <ul class="collapse">
+  <li><a href="#carga-vía-consola-web-paso-a-paso" id="toc-carga-vía-consola-web-paso-a-paso" class="nav-link" data-scroll-target="#carga-vía-consola-web-paso-a-paso"><span class="header-section-number">2.4.1</span> Carga vía Consola Web (Paso a Paso)</a></li>
+  <li><a href="#carga-vía-ossutil-volúmenes-masivosautomatización" id="toc-carga-vía-ossutil-volúmenes-masivosautomatización" class="nav-link" data-scroll-target="#carga-vía-ossutil-volúmenes-masivosautomatización"><span class="header-section-number">2.4.2</span> Carga vía <code>ossutil</code> (Volúmenes masivos/Automatización)</a></li>
+  </ul></li>
+  <li><a href="#versionamiento-y-recuperación" id="toc-versionamiento-y-recuperación" class="nav-link" data-scroll-target="#versionamiento-y-recuperación"><span class="header-section-number">2.5</span> Versionamiento y Recuperación</a></li>
+  <li><a href="#ciclo-de-vida-optimización-de-costos" id="toc-ciclo-de-vida-optimización-de-costos" class="nav-link" data-scroll-target="#ciclo-de-vida-optimización-de-costos"><span class="header-section-number">2.6</span> Ciclo de Vida: Optimización de Costos</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-oss.html">PARTE II: INGESTA Y ALMACENAMIENTO (OSS)</a></li><li class="breadcrumb-item"><a href="./02-oss.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gestión de Archivos en OSS</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gestión de Archivos en OSS</span></h1>
 </div>
 
 
@@ -162,9 +305,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
+<p>El <strong>Object Storage Service (OSS)</strong> de Alibaba Cloud es la base de nuestra capa <strong>Bronze</strong>. En este capítulo, aprenderás a gestionar los archivos de forma estandarizada y segura.</p>
+<section id="flujo-de-datos-en-el-lakehouse" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="flujo-de-datos-en-el-lakehouse"><span class="header-section-number">2.1</span> Flujo de Datos en el Lakehouse</h2>
+<p>Para contextualizar el rol de OSS, observemos cómo transitan los datos a través de las capas del proyecto:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A[Fuentes de Datos] --&gt;|Carga/ossutil| B("🥉 Capa Bronze (OSS)")
+    B --&gt;|Procesamiento| C("🥈 Capa Silver (MaxCompute)")
+    C --&gt;|Refinamiento| D("🥇 Capa Gold (MaxCompute)")
+    D --&gt;|Visualización| E[Quick BI / DataV]
+
+    style B fill:#cd7f32,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#c0c0c0,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#ffd700,stroke:#333,stroke-width:2px,color:#000
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="navegación-por-la-consola" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="navegación-por-la-consola"><span class="header-section-number">2.2</span> Navegación por la Consola</h2>
+<p>Para gestionar los datos manualmente:</p>
+<ol type="1">
+<li>Inicia sesión en la consola de <strong>Alibaba Cloud</strong>.</li>
+<li>En el menú de productos, busca y selecciona <strong>Object Storage Service</strong>.</li>
+<li>En el panel izquierdo, haz clic en <strong>Bucket List</strong>.</li>
+<li>Selecciona el bucket asignado a tu proyecto (ej: <code>ungrd-lakehouse-bronze</code>).</li>
+<li>Usa la pestaña <strong>Files</strong> para navegar por las carpetas, subir o descargar archivos.</li>
+</ol>
+</section>
+<section id="estándares-de-naming-regla-ungrd" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="estándares-de-naming-regla-ungrd"><span class="header-section-number">2.3</span> Estándares de Naming: Regla UNGRD</h2>
+<p>Para garantizar la trazabilidad y evitar colisiones de datos, <strong>todos</strong> los archivos cargados deben seguir esta estructura:</p>
+<p><code>[PROYECTO]_[ZONA]_[FECHA]_[VERSION].[EXT]</code></p>
+<p><strong>Ejemplos:</strong> - <code>SUE_MOCOA_20231025_V1.csv</code> - <code>SAT_VIGIA_20240112_V2.json</code></p>
+<blockquote class="blockquote">
+<p>[!IMPORTANT] No uses espacios, tildes ni caracteres especiales en los nombres. Usa siempre guion bajo (<code>_</code>) como separador.</p>
+</blockquote>
+</section>
+<section id="guía-de-carga-de-datos" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="guía-de-carga-de-datos"><span class="header-section-number">2.4</span> Guía de Carga de Datos</h2>
+<section id="carga-vía-consola-web-paso-a-paso" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="carga-vía-consola-web-paso-a-paso"><span class="header-section-number">2.4.1</span> Carga vía Consola Web (Paso a Paso)</h3>
+<p>Este método es ideal para archivos individuales o volúmenes pequeños de datos:</p>
+<ol type="1">
+<li><strong>Ingreso al Bucket:</strong> Navega hasta tu bucket objetivo siguiendo los pasos de la sección 2.1.</li>
+<li><strong>Preparación de Carpeta:</strong> Entra en la carpeta de destino donde deseas que repose el dato (ej: <code>proyectos/sue/bronze/</code>).</li>
+<li><strong>Iniciar Carga:</strong> Haz clic en el botón azul <strong>Upload</strong> situado en la parte superior derecha.</li>
+<li><strong>Selección de Archivos:</strong>
+<ul>
+<li>Haz clic en <strong>Select Files</strong> para abrir el explorador de tu equipo.</li>
+<li>O simplemente arrastra y suelta los archivos directamente en el recuadro gris.</li>
+</ul></li>
+<li><strong>Configuración de Carga:</strong>
+<ul>
+<li><strong>Upload To:</strong> Verifica que la ruta de destino sea la correcta.</li>
+<li><strong>File ACL:</strong> Déjalo en <strong>Inherited from Bucket</strong> (esto asegura que herede los permisos de seguridad de la UNGRD).</li>
+<li><strong>Storage Class:</strong> Asegúrate de que esté en <strong>Standard</strong> para datos que van a ser procesados de inmediato.</li>
+</ul></li>
+<li><strong>Finalizar:</strong> Haz clic en el botón <strong>Upload</strong> al final del panel lateral. Podrás seguir el progreso en la barra de tareas inferior.</li>
+</ol>
+</section>
+<section id="carga-vía-ossutil-volúmenes-masivosautomatización" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="carga-vía-ossutil-volúmenes-masivosautomatización"><span class="header-section-number">2.4.2</span> Carga vía <code>ossutil</code> (Volúmenes masivos/Automatización)</h3>
+<p>Para usuarios avanzados e ingenieros, recomendamos usar la herramienta de línea de comandos <code>ossutil</code>.</p>
+<p><strong>Comando básico de subida:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./ossutil64</span> cp ./mi_archivo_local.csv oss://ungrd-lakehouse-bronze/proyectos/sue/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="versionamiento-y-recuperación" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="versionamiento-y-recuperación"><span class="header-section-number">2.5</span> Versionamiento y Recuperación</h2>
+<p>El Lakehouse tiene activado el <strong>Bucket Versioning</strong>. Esto significa que si sobrescribes un archivo con el mismo nombre, el sistema guarda una copia de la versión anterior.</p>
+<blockquote class="blockquote">
+<p>[!WARNING] <strong>Recuperación de Archivos Borrados:</strong> Si borras un archivo accidentalmente, este no desaparece de inmediato. El sistema crea un “Delete Marker”. Para recuperarlo, debes activar la opción <strong>Show Deleted Objects</strong>, seleccionar la versión anterior al borrado y hacer clic en <strong>Restore</strong>.</p>
+</blockquote>
+</section>
+<section id="ciclo-de-vida-optimización-de-costos" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="ciclo-de-vida-optimización-de-costos"><span class="header-section-number">2.6</span> Ciclo de Vida: Optimización de Costos</h2>
+<p>Los datos de desastres antiguos que ya no se consultan frecuentemente deben moverse a capas de almacenamiento más baratas.</p>
+<ol type="1">
+<li><strong>Standard:</strong> Acceso frecuente, mayor costo.</li>
+<li><strong>IA (Infrequent Access):</strong> Acceso mensual, menor costo.</li>
+<li><strong>Cold Archive:</strong> Para datos históricos (de hace 5+ años). Los costos son mínimos, pero la recuperación puede tardar minutos u horas.</li>
+</ol>
+<p>Configura reglas de <strong>Lifecycle</strong> en la pestaña <strong>Basic Settings</strong> para automatizar este movimiento y optimizar el presupuesto de la UNGRD.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -569,13 +803,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./01-vision.html" class="pagination-link" aria-label="Visión del Proyecto UNGRD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Visión del Proyecto UNGRD</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-dataworks.html" class="pagination-link" aria-label="DataWorks - El Centro de Mando">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DataWorks - El Centro de Mando</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

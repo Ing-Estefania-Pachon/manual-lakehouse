@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Manual-lakehouse",
+    "title": "Manual Maestro Data Lakehouse UNGRD",
     "section": "",
     "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
     "crumbs": [
@@ -10,33 +10,201 @@
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
+    "objectID": "01-vision.html",
+    "href": "01-vision.html",
+    "title": "1  Visión del Proyecto UNGRD",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1.1 El Objetivo: Del Caos al Orden\nEn la gestión del riesgo de desastres, el tiempo no es solo una métrica de rendimiento; es la diferencia entre la vida y la muerte. Históricamente, la UNGRD ha operado con datos fragmentados, silos de información y procesos manuales que retrasan la respuesta ante emergencias.\nEl proyecto Data Lakehouse nace con una misión clara: Salvar vidas con datos. Nuestra meta es transformar el caos de datos crudos en una fuente única de verdad, permitiendo que cada decisión —desde la entrega de ayuda humanitaria hasta la mitigación de riesgos de inundación— esté respaldada por evidencia analítica en tiempo real.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
     ]
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "01-vision.html#el-objetivo-del-caos-al-orden",
+    "href": "01-vision.html#el-objetivo-del-caos-al-orden",
+    "title": "1  Visión del Proyecto UNGRD",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.",
+    "text": "NoteNuestra Misión\n\n\n\nConvertir la información en acción. Un dato bien procesado hoy es una vida salvada mañana.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "objectID": "01-vision.html#qué-es-el-lakehouse",
+    "href": "01-vision.html#qué-es-el-lakehouse",
+    "title": "1  Visión del Proyecto UNGRD",
+    "section": "1.2 ¿Qué es el Lakehouse?",
+    "text": "1.2 ¿Qué es el Lakehouse?\nEl Data Lakehouse es la evolución de nuestra infraestructura tecnológica en Alibaba Cloud. Combina lo mejor de dos mundos:\n\nData Lake: La capacidad de almacenar volúmenes masivos de datos en su formato original (imágenes satelitales, sensores, reportes de campo) de manera económica y flexible usando OSS.\nData Warehouse: El rigor, la estructura y el rendimiento de una base de datos analítica de alto nivel usando MaxCompute.\n\nEsta arquitectura híbrida nos permite ser ágiles sin perder la soberanía y gobernanza de los datos nacionales.",
     "crumbs": [
-      "References"
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
+    ]
+  },
+  {
+    "objectID": "01-vision.html#las-capas-la-analogía-del-tratamiento-de-agua",
+    "href": "01-vision.html#las-capas-la-analogía-del-tratamiento-de-agua",
+    "title": "1  Visión del Proyecto UNGRD",
+    "section": "1.3 Las Capas: La Analogía del Tratamiento de Agua",
+    "text": "1.3 Las Capas: La Analogía del Tratamiento de Agua\nPara entender cómo fluyen los datos en el Lakehouse, utilizamos la Arquitectura Medallion, que funciona exactamente como una planta de tratamiento de agua:\n\n1.3.1 🥉 Capa Bronze (Agua Cruda)\nEs el punto de entrada. Aquí almacenamos los datos tal cual llegan de las fuentes (como el agua tomada directamente de un río). Es completa pero contiene sedimentos e impurezas que no permiten su consumo directo. * Estado: Crudo / Sin procesar.\n\n\n1.3.2 🥈 Capa Silver (Agua Filtrada)\nEn esta etapa, limpiamos, filtramos y estandarizamos los datos. Eliminamos duplicados y corregimos errores. El dato ya es confiable para los analistas técnicos, similar a un agua que ha pasado por procesos de potabilización pero aún no está embotellada. * Estado: Limpio / Consistente.\n\n\n1.3.3 🥇 Capa Gold (Agua Potable/Premium)\nEs la capa final de valor. Aquí los datos están agregados y modelados para responder preguntas de negocio específicas (ej: “¿Cuántas familias fueron afectadas en Mocoa?”). Es el agua lista para el consumo masivo en dashboards de Quick BI. * Estado: Accionable / Optimizado para toma de decisiones.",
+    "crumbs": [
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
+    ]
+  },
+  {
+    "objectID": "01-vision.html#mapa-de-herramientas-ecosistema-alibaba-cloud",
+    "href": "01-vision.html#mapa-de-herramientas-ecosistema-alibaba-cloud",
+    "title": "1  Visión del Proyecto UNGRD",
+    "section": "1.4 Mapa de Herramientas (Ecosistema Alibaba Cloud)",
+    "text": "1.4 Mapa de Herramientas (Ecosistema Alibaba Cloud)\nLa infraestructura se apoya en cuatro pilares fundamentales:\n\n\n\n\n\ngraph LR\n    A[Fuentes de Datos] --&gt; B(Almacenamiento: OSS)\n    B --&gt; C{Orquestación: DataWorks}\n    C --&gt; D(Procesamiento: MaxCompute)\n    D --&gt; E(Visualización: Quick BI / DataV)\n    \n    subgraph \"Capa Bronze\"\n    B\n    end\n    \n    subgraph \"Capa Silver/Gold\"\n    D\n    end\n\n\n\n\n\n\n\nOSS (Object Storage Service): Nuestro gran repositorio de archivos.\nMaxCompute: El motor que procesa millones de filas en segundos.\nDataWorks: El puente que conecta todas las herramientas y automatiza los flujos.\nQuick BI / DataV: Las ventanas a través de las cuales los directivos ven la realidad del territorio.",
+    "crumbs": [
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
+    ]
+  },
+  {
+    "objectID": "01-vision.html#glosario-corporativo",
+    "href": "01-vision.html#glosario-corporativo",
+    "title": "1  Visión del Proyecto UNGRD",
+    "section": "1.5 Glosario Corporativo",
+    "text": "1.5 Glosario Corporativo\n\nArquitectura Medallion: Metodología de organización de datos en capas (Bronze, Silver, Gold).\nLakehouse: Plataforma que unifica capacidades analíticas y de almacenamiento masivo.\nIngesta: El proceso de mover datos desde una fuente externa hacia nuestro sistema.\nGobernanza: Reglas y controles para asegurar que el dato sea veraz, seguro y privado.\nFicha SUE: Sistema Unificado de Información para la gestión del Riesgo.",
+    "crumbs": [
+      "PARTE I: FUNDAMENTOS Y ESTRATEGIA",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Visión del Proyecto UNGRD</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html",
+    "href": "02-oss.html",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "",
+    "text": "2.1 Flujo de Datos en el Lakehouse\nEl Object Storage Service (OSS) de Alibaba Cloud es la base de nuestra capa Bronze. En este capítulo, aprenderás a gestionar los archivos de forma estandarizada y segura.\nPara contextualizar el rol de OSS, observemos cómo transitan los datos a través de las capas del proyecto:\ngraph TD\n    A[Fuentes de Datos] --&gt;|Carga/ossutil| B(\"🥉 Capa Bronze (OSS)\")\n    B --&gt;|Procesamiento| C(\"🥈 Capa Silver (MaxCompute)\")\n    C --&gt;|Refinamiento| D(\"🥇 Capa Gold (MaxCompute)\")\n    D --&gt;|Visualización| E[Quick BI / DataV]\n\n    style B fill:#cd7f32,stroke:#333,stroke-width:2px,color:#fff\n    style C fill:#c0c0c0,stroke:#333,stroke-width:2px,color:#000\n    style D fill:#ffd700,stroke:#333,stroke-width:2px,color:#000",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html#navegación-por-la-consola",
+    "href": "02-oss.html#navegación-por-la-consola",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "2.2 Navegación por la Consola",
+    "text": "2.2 Navegación por la Consola\nPara gestionar los datos manualmente:\n\nInicia sesión en la consola de Alibaba Cloud.\nEn el menú de productos, busca y selecciona Object Storage Service.\nEn el panel izquierdo, haz clic en Bucket List.\nSelecciona el bucket asignado a tu proyecto (ej: ungrd-lakehouse-bronze).\nUsa la pestaña Files para navegar por las carpetas, subir o descargar archivos.",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html#estándares-de-naming-regla-ungrd",
+    "href": "02-oss.html#estándares-de-naming-regla-ungrd",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "2.3 Estándares de Naming: Regla UNGRD",
+    "text": "2.3 Estándares de Naming: Regla UNGRD\nPara garantizar la trazabilidad y evitar colisiones de datos, todos los archivos cargados deben seguir esta estructura:\n[PROYECTO]_[ZONA]_[FECHA]_[VERSION].[EXT]\nEjemplos: - SUE_MOCOA_20231025_V1.csv - SAT_VIGIA_20240112_V2.json\n\n[!IMPORTANT] No uses espacios, tildes ni caracteres especiales en los nombres. Usa siempre guion bajo (_) como separador.",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html#guía-de-carga-de-datos",
+    "href": "02-oss.html#guía-de-carga-de-datos",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "2.4 Guía de Carga de Datos",
+    "text": "2.4 Guía de Carga de Datos\n\n2.4.1 Carga vía Consola Web (Paso a Paso)\nEste método es ideal para archivos individuales o volúmenes pequeños de datos:\n\nIngreso al Bucket: Navega hasta tu bucket objetivo siguiendo los pasos de la sección 2.1.\nPreparación de Carpeta: Entra en la carpeta de destino donde deseas que repose el dato (ej: proyectos/sue/bronze/).\nIniciar Carga: Haz clic en el botón azul Upload situado en la parte superior derecha.\nSelección de Archivos:\n\nHaz clic en Select Files para abrir el explorador de tu equipo.\nO simplemente arrastra y suelta los archivos directamente en el recuadro gris.\n\nConfiguración de Carga:\n\nUpload To: Verifica que la ruta de destino sea la correcta.\nFile ACL: Déjalo en Inherited from Bucket (esto asegura que herede los permisos de seguridad de la UNGRD).\nStorage Class: Asegúrate de que esté en Standard para datos que van a ser procesados de inmediato.\n\nFinalizar: Haz clic en el botón Upload al final del panel lateral. Podrás seguir el progreso en la barra de tareas inferior.\n\n\n\n2.4.2 Carga vía ossutil (Volúmenes masivos/Automatización)\nPara usuarios avanzados e ingenieros, recomendamos usar la herramienta de línea de comandos ossutil.\nComando básico de subida:\n./ossutil64 cp ./mi_archivo_local.csv oss://ungrd-lakehouse-bronze/proyectos/sue/",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html#versionamiento-y-recuperación",
+    "href": "02-oss.html#versionamiento-y-recuperación",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "2.5 Versionamiento y Recuperación",
+    "text": "2.5 Versionamiento y Recuperación\nEl Lakehouse tiene activado el Bucket Versioning. Esto significa que si sobrescribes un archivo con el mismo nombre, el sistema guarda una copia de la versión anterior.\n\n[!WARNING] Recuperación de Archivos Borrados: Si borras un archivo accidentalmente, este no desaparece de inmediato. El sistema crea un “Delete Marker”. Para recuperarlo, debes activar la opción Show Deleted Objects, seleccionar la versión anterior al borrado y hacer clic en Restore.",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "02-oss.html#ciclo-de-vida-optimización-de-costos",
+    "href": "02-oss.html#ciclo-de-vida-optimización-de-costos",
+    "title": "2  Gestión de Archivos en OSS",
+    "section": "2.6 Ciclo de Vida: Optimización de Costos",
+    "text": "2.6 Ciclo de Vida: Optimización de Costos\nLos datos de desastres antiguos que ya no se consultan frecuentemente deben moverse a capas de almacenamiento más baratas.\n\nStandard: Acceso frecuente, mayor costo.\nIA (Infrequent Access): Acceso mensual, menor costo.\nCold Archive: Para datos históricos (de hace 5+ años). Los costos son mínimos, pero la recuperación puede tardar minutos u horas.\n\nConfigura reglas de Lifecycle en la pestaña Basic Settings para automatizar este movimiento y optimizar el presupuesto de la UNGRD.",
+    "crumbs": [
+      "PARTE II: INGESTA Y ALMACENAMIENTO (OSS)",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Gestión de Archivos en OSS</span>"
+    ]
+  },
+  {
+    "objectID": "03-dataworks.html",
+    "href": "03-dataworks.html",
+    "title": "3  DataWorks - El Centro de Mando",
+    "section": "",
+    "text": "3.1 Introducción a DataWorks\nHerramienta de orquestación y desarrollo de datos en el ecosistema Alibaba Cloud.",
+    "crumbs": [
+      "PARTE III: INTEGRACIÓN (DataWorks)",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>DataWorks - El Centro de Mando</span>"
+    ]
+  },
+  {
+    "objectID": "04-maxcompute.html",
+    "href": "04-maxcompute.html",
+    "title": "4  Procesamiento y SQL con MaxCompute",
+    "section": "",
+    "text": "4.1 MaxCompute\nMotor de cómputo para análisis masivo de datos.",
+    "crumbs": [
+      "PARTE IV: PROCESAMIENTO (MaxCompute)",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Procesamiento y SQL con MaxCompute</span>"
+    ]
+  },
+  {
+    "objectID": "05-quickbi.html",
+    "href": "05-quickbi.html",
+    "title": "5  Quick BI",
+    "section": "",
+    "text": "5.1 Visualización de Datos\nCreación de dashboards interactivos para la toma de decisiones.",
+    "crumbs": [
+      "PARTE V: VISUALIZACIÓN",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Quick BI</span>"
+    ]
+  },
+  {
+    "objectID": "06-datav.html",
+    "href": "06-datav.html",
+    "title": "6  DataV Geoespacial",
+    "section": "",
+    "text": "6.1 Datos en el Mapa\nVisualización de eventos y riesgos en tiempo real mediante mapas interactivos.",
+    "crumbs": [
+      "PARTE V: VISUALIZACIÓN",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>DataV Geoespacial</span>"
+    ]
+  },
+  {
+    "objectID": "07-gobernanza.html",
+    "href": "07-gobernanza.html",
+    "title": "7  Seguridad y Calidad de Datos",
+    "section": "",
+    "text": "7.1 RAM y Gobernanza\nGestión de identidades y recursos.",
+    "crumbs": [
+      "PARTE VI: GOBERNANZA",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Seguridad y Calidad de Datos</span>"
+    ]
+  },
+  {
+    "objectID": "07-gobernanza.html#dqc-data-quality-control",
+    "href": "07-gobernanza.html#dqc-data-quality-control",
+    "title": "7  Seguridad y Calidad de Datos",
+    "section": "7.2 DQC (Data Quality Control)",
+    "text": "7.2 DQC (Data Quality Control)\nAseguramiento de la integridad de los datos en todas las capas.",
+    "crumbs": [
+      "PARTE VI: GOBERNANZA",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Seguridad y Calidad de Datos</span>"
     ]
   }
 ]
