@@ -18,7 +18,7 @@ graph TD
     style D fill:#ffd700,stroke:#333,stroke-width:2px,color:#000
 ```
 
-## 2.1 Navegación por la Consola
+## Navegación por la Consola
 
 Para gestionar los datos manualmente:
 
@@ -28,7 +28,7 @@ Para gestionar los datos manualmente:
 4.  Selecciona el bucket asignado a tu proyecto (ej: `ungrd-lakehouse-bronze`).
 5.  Usa la pestaña **Files** para navegar por las carpetas, subir o descargar archivos.
 
-## 2.2 Estándares de Naming: Regla UNGRD
+## Estándares de Naming: Regla UNGRD
 
 Para garantizar la trazabilidad y evitar colisiones de datos, **todos** los archivos cargados deben seguir esta estructura:
 
@@ -41,7 +41,7 @@ Para garantizar la trazabilidad y evitar colisiones de datos, **todos** los arch
 > [!IMPORTANT]
 > No uses espacios, tildes ni caracteres especiales en los nombres. Usa siempre guion bajo (`_`) como separador.
 
-## 2.3 Guía de Carga de Datos
+## Guía de Carga de Datos
 
 ### Carga vía Consola Web (Paso a Paso)
 
@@ -67,7 +67,7 @@ Para usuarios avanzados e ingenieros, recomendamos usar la herramienta de línea
 ./ossutil64 cp ./mi_archivo_local.csv oss://ungrd-lakehouse-bronze/proyectos/sue/
 ```
 
-## 2.4 Versionamiento y Recuperación
+## Versionamiento y Recuperación
 
 El Lakehouse tiene activado el **Bucket Versioning**. Esto significa que si sobrescribes un archivo con el mismo nombre, el sistema guarda una copia de la versión anterior.
 
@@ -75,7 +75,7 @@ El Lakehouse tiene activado el **Bucket Versioning**. Esto significa que si sobr
 > **Recuperación de Archivos Borrados:**
 > Si borras un archivo accidentalmente, este no desaparece de inmediato. El sistema crea un "Delete Marker". Para recuperarlo, debes activar la opción **Show Deleted Objects**, seleccionar la versión anterior al borrado y hacer clic en **Restore**.
 
-## 2.5 Ciclo de Vida: Optimización de Costos
+## Ciclo de Vida: Optimización de Costos
 
 Los datos de desastres antiguos que ya no se consultan frecuentemente deben moverse a capas de almacenamiento más baratas.
 

@@ -1,6 +1,6 @@
 # Visión del Proyecto UNGRD
 
-## 1.1 El Objetivo: Del Caos al Orden
+## El Objetivo: Del Caos al Orden
 
 En la gestión del riesgo de desastres, el tiempo no es solo una métrica de rendimiento; es la diferencia entre la vida y la muerte. Históricamente, la **UNGRD** ha operado con datos fragmentados, silos de información y procesos manuales que retrasan la respuesta ante emergencias.
 
@@ -11,7 +11,7 @@ El proyecto **Data Lakehouse** nace con una misión clara: **Salvar vidas con da
 Convertir la información en acción. Un dato bien procesado hoy es una vida salvada mañana.
 :::
 
-## 1.2 ¿Qué es el Lakehouse?
+## ¿Qué es el Lakehouse?
 
 El **Data Lakehouse** es la evolución de nuestra infraestructura tecnológica en Alibaba Cloud. Combina lo mejor de dos mundos:
 
@@ -20,7 +20,7 @@ El **Data Lakehouse** es la evolución de nuestra infraestructura tecnológica e
 
 Esta arquitectura híbrida nos permite ser ágiles sin perder la soberanía y gobernanza de los datos nacionales.
 
-## 1.3 Las Capas: La Analogía del Tratamiento de Agua
+## Las Capas: La Analogía del Tratamiento de Agua
 
 Para entender cómo fluyen los datos en el Lakehouse, utilizamos la **Arquitectura Medallion**, que funciona exactamente como una planta de tratamiento de agua:
 
@@ -36,7 +36,7 @@ En esta etapa, limpiamos, filtramos y estandarizamos los datos. Eliminamos dupli
 Es la capa final de valor. Aquí los datos están agregados y modelados para responder preguntas de negocio específicas (ej: "¿Cuántas familias fueron afectadas en Mocoa?"). Es el agua lista para el consumo masivo en dashboards de **Quick BI**.
 *   **Estado:** Accionable / Optimizado para toma de decisiones.
 
-## 1.4 Mapa de Herramientas (Ecosistema Alibaba Cloud)
+## Mapa de Herramientas (Ecosistema Alibaba Cloud)
 
 La infraestructura se apoya en cuatro pilares fundamentales:
 
